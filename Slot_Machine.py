@@ -4,7 +4,7 @@ import random
 import slot_logic
 import slot_sounds
 
-class AppUI:
+class Slot_UI:
 
 	def __init__(self):	
 		
@@ -301,7 +301,7 @@ class AppUI:
 if __name__ == '__main__':
 
 	game = slot_logic.Game()
-	app = AppUI()
+	app = Slot_UI()
 
 
 
