@@ -14,8 +14,9 @@ class Slot_UI:
 		pygame.display.set_caption("Slot Machine")
 		self.clock = pygame.time.Clock()
 		self.screen.fill((0,100,0))
-		self.font0 = pygame.font.SysFont("Gothic", 100, (0,0,0))
-		self.font1 = pygame.font.SysFont("Gothic", 50)
+		self.font0 = pygame.font.SysFont("Century", 100, (0,0,0))
+		self.font1 = pygame.font.SysFont("Century", 50)
+		self.font2 = pygame.font.SysFont("Century", 20)
 		pygame.display.update()
 
 		self.s0 = pygame.image.load("images/Bananas.png")
@@ -51,6 +52,7 @@ class Slot_UI:
 			
 			self.clock.tick(5)			
 			self.screen.fill((0,0,0))
+			self.display_background()
 			self.display_symbols()
 			self.display_panel()
 			
@@ -124,6 +126,28 @@ class Slot_UI:
 			i[7][1] = -768
 			i[8][1] = -960				
 
+	def create_static_content(self):
+		pass
+
+
+
+	def display_background(self):
+
+		# help_string0 = '''Press 's' to spin'''
+		# help_string1 = '''Arrow up to raise bet'''
+		# help_string2 = '''Arrow down to lower bet'''
+
+		# help_label0 = self.font2.render(help_string0,1, (255,255,255))
+		# help_label1 = self.font2.render(help_string1,1, (255,255,255))
+		# help_label2 = self.font2.render(help_string2,1, (255,255,255))
+		
+		# label_lines = [help_label0, help_label1, help_label2]
+		# for i in xrange(len(label_lines)):
+		# 	self.screen.blit(label_lines[i], (50,i*50+50))
+
+		pass
+
+
 	def display_symbols(self):
 
 		for i in self.wheel0:
@@ -141,13 +165,17 @@ class Slot_UI:
 		bottom_rect = pygame.draw.rect(self.screen, (0,0,0), [0,576,1366,768])
 
 		credit_label = self.font1.render("Credit: $%.2f" % game.player_money,1, (255,255,255))
-		self.screen.blit(credit_label, (50,630))
+		self.screen.blit(credit_label, (150,630))
 
 		bet_label = self.font1.render("Bet: $%.2f" % game.denomination,1, (255,255,255))
-		self.screen.blit(bet_label, (580,630))
+		self.screen.blit(bet_label, (550,630))
 
 		winningX_label = self.font1.render("Win: $%.2f" % (self.winnings_to_display),1, (255,255,255))
-		self.screen.blit(winningX_label, (1040,630))
+		self.screen.blit(winningX_label, (880,630))
+
+		help_string = "Press 's' to spin. Arrow up to raise bet. Arrow down to lower bet."
+		help_label = self.font2.render(help_string, 1, (100,100,100))
+		self.screen.blit(help_label, (365,715))
 
 	def wheel_animation_frame(self,t0,t1, w0_speed, w1_speed, w2_speed):
 		

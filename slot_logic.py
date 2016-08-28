@@ -31,7 +31,8 @@ class Game:
 	def get_bet_multiplier(self):
 
 
-		rand_num = random.randrange(0,10000)
+		#rand_num = random.randrange(0,10000)
+		rand_num = random.randrange(0,150)
 		
 		if rand_num <   self.t[0]:
 			return 100
